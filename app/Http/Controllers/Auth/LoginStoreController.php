@@ -16,14 +16,14 @@ class LoginStoreController extends Controller
             'password' => 'required|string'
         ]);
         if (!Auth::attempt($cred)) {
-
-            return back()
-                ->withInput()
-                ->withErrors([
-                    'email' => 'Такого email не существует',
-                ]);
-
+            $user = \App\Models\User::where('email', $cred['email'])->first();
+            if (!$user) {
+                return back()->withErrors(['email' => 'Пользователь с таким email не найден.']);
+            } elseif (!\Illuminate\Support\Facades\Hash::check($cred['password'], $user->password)) {
+                return back()->withErrors(['password' => 'Пароль неверный.']);
+            }
         }
+
         return redirect()->intended(RouteServiceProvider::HOME);
 
     }
