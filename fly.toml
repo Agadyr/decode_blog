@@ -2,7 +2,6 @@ app = "decode-blog"
 console_command = "php /var/www/html/artisan tinker"
 primary_region = "waw"
 
-
 [build.args]
 NODE_VERSION = "18"
 PHP_VERSION = "7.4"
@@ -14,6 +13,13 @@ LOG_LEVEL = "info"
 LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
 SESSION_DRIVER = "cookie"
 SESSION_SECURE_COOKIE = "true"
+DB_CONNECTION = "mysql"
+DB_HOST = "mysql-25a51819-kairambekovmadi-3bc2.b.aivencloud.com"
+DB_PORT = "11597"
+DB_DATABASE = "defaultdb"
+DB_USERNAME = "avnadmin"
+DB_PASSWORD = "AVNS_UPqSFTn1nko8Q7kZhDW"
+DB_SSL = "true"
 
 [http_service]
 auto_start_machines = true
