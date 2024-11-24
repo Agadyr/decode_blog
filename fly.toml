@@ -3,7 +3,7 @@ console_command = "php /var/www/html/artisan tinker"
 primary_region = "waw"
 
 [build]
-  builder = "heroku/buildpacks:php"  # Используем buildpack для PHP
+  builder = "heroku/php"
 
 [build.args]
 NODE_VERSION = "18"
