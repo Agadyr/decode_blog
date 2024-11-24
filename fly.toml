@@ -2,6 +2,9 @@ app = "decode-blog"
 console_command = "php /var/www/html/artisan tinker"
 primary_region = "waw"
 
+[build]
+  builder = "heroku/buildpacks:php"  # Используем buildpack для PHP
+
 [build.args]
 NODE_VERSION = "18"
 PHP_VERSION = "7.4"
@@ -14,13 +17,11 @@ LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
 SESSION_DRIVER = "cookie"
 SESSION_SECURE_COOKIE = "true"
 
-# Database connection settings
-
 [http_service]
 auto_start_machines = true
 auto_stop_machines = true
 force_https = true
-internal_port = 8_080
+internal_port = 8080  # Убедитесь, что порт правильно указан
 min_machines_running = 0
 processes = [ "app" ]
 
